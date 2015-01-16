@@ -3,7 +3,7 @@
 <div class="center jumbotron">
   <h1>Welcome to Time Capsule</h1>
   <% if user_signed_in? %>
-      <%= link_to "Add to your capsule", '#', class: "btn btn-lg btn-primary" %>    
+      <%= link_to "Add to your capsule", new_user_registration_path, class: "btn btn-lg btn-primary" %>
   <% else %>
       <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
   <% end %>
