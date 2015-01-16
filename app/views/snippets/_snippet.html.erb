@@ -1,7 +1,14 @@
 <li id="snippet-<%= snippet.id %>">
   <span class="user"><%= snippet.title %></span>
-  <span class="content"><%= snippet.content %></span>
-  <span class="timestamp">
-    Entered <%= time_ago_in_words(snippet.created_at) %> ago.
-  </span>
+  <% if !((snippet.created_at + 3.minutes) > Time.now) %>
+    <span class="content"><%= snippet.content %></span>
+    <span class="timestamp">
+      Written <%= time_ago_in_words(snippet.created_at) %> ago.
+    </span>
+  <% else %>
+    <span class="content">This snippet is not available yet</span>
+    <span class="timestamp">
+      You have to wait <%= distance_of_time_in_words(Time.now, snippet.created_at) %>.
+    </span>
+  <% end %>
 </li>
