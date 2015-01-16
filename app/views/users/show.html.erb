@@ -4,6 +4,13 @@
   <div class="col-md-6 col-md-offset-3">
   	<h1><%= @user.email %></h1>
     <% if @user.snippets.any? %>
+    
+      <%= @snippets.each do |snippet| %>
+        <% if (snippet.created_at + 3.minutes) > Time.now %>
+          <%= render "No" %>
+        <% else %>
+          <%= render "Yes" %>
+      
       <h3>Snippets</h3>
       <ol class="snippets">
         <%= render @snippets %>

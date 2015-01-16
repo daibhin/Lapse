@@ -1,3 +1,5 @@
+<h2>Add a snippet</h2>
+
 <%= form_for(@snippet) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
@@ -6,5 +8,5 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new snippet..." %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%= f.submit "Add to capsule", class: "btn btn-primary" %>
 <% end %>
