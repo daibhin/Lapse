@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   match 'users/:id' => 'users#show', via: :get
   
   resources :users
+  resources :snippets,  only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

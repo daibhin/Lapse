@@ -1,10 +1,16 @@
 <% provide(:title, "Home") %>
 
 <div class="center jumbotron">
-  <h1>Welcome to Time Capsule</h1>
   <% if user_signed_in? %>
-      <%= link_to "Add to your capsule", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <section class="snippet_form">
+          <%= render 'shared/snippet_form' %>
+        </section>
+      </div>
+    </div>
   <% else %>
-      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <h1>Welcome to Time Capsule</h1>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
   <% end %>
 </div>

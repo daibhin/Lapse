@@ -1,2 +1,14 @@
 <% provide(:title, @user.email) %>
-<h1><%= @user.email %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  	<h1><%= @user.email %></h1>
+    <% if @user.snippets.any? %>
+      <h3>Snippets</h3>
+      <ol class="snippets">
+        <%= render @snippets %>
+      </ol>
+      <%= will_paginate @snippets %>
+    <% end %>
+  </div>
+</div>
