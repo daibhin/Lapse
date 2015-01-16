@@ -8,7 +8,7 @@
   <% else %>
     <span class="content">This snippet is not available yet</span>
     <span class="timestamp">
-      You have to wait <%= distance_of_time_in_words(Time.now, snippet.created_at) %>.
+      You have to wait <%= distance_of_time_in_words(snippet.created_at + 3.minutes, snippet.created_at) %>.
     </span>
   <% end %>
 </li>
