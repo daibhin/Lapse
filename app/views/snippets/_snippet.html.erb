@@ -2,13 +2,14 @@
   <span class="user"><%= snippet.title %></span>
   <% if !((snippet.created_at + 3.minutes) > Time.now) %>
     <span class="content"><%= snippet.content %></span>
+    <%= image_tag snippet.picture.url if snippet.picture? %>
     <span class="timestamp">
       Written <%= time_ago_in_words(snippet.created_at) %> ago.
     </span>
   <% else %>
-    <span class="content">This snippet is not available yet</span>
+    <span class="content">This snippet is not available yet. Come back later to see it!</span>
     <span class="timestamp">
-      You have to wait <%= distance_of_time_in_words(snippet.created_at + 3.minutes, snippet.created_at) %>.
+      You have to wait <%= distance_of_time_in_words(snippet.created_at + 3.minutes, Time.now) %>.
     </span>
   <% end %>
 </li>

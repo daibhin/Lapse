@@ -1,6 +1,6 @@
 <h2>Add a snippet</h2>
 
-<%= form_for(@snippet) do |f| %>
+<%= form_for(@snippet, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.text_field :title, placeholder: "Add a title..." %>
@@ -8,5 +8,17 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new snippet..." %>
   </div>
+  <span class="picture">
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
   <%= f.submit "Add to capsule", class: "btn btn-primary" %>
 <% end %>
+
+<script type="text/javascript">
+  $('#snippet_picture').bind('change', function() {
+    size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>

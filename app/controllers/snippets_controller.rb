@@ -4,7 +4,7 @@ class SnippetsController < ApplicationController
   def create
     @snippet = current_user.snippets.build(snippet_params)
     if @snippet.save
-      flash[:success] = "Snippet added!"
+      flash[:success] = "Snippet added to your time capsule!"
       redirect_to root_url
     else
       render 'static_pages/home'
@@ -17,6 +17,6 @@ class SnippetsController < ApplicationController
   private
 
     def snippet_params
-      params.require(:snippet).permit(:title, :content)
+      params.require(:snippet).permit(:title, :content, :picture)
     end
 end

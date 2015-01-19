@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116163620) do
+ActiveRecord::Schema.define(version: 20150119090448) do
 
   create_table "snippets", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150116163620) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "picture"
   end
 
   add_index "snippets", ["user_id", "created_at"], name: "index_snippets_on_user_id_and_created_at"
