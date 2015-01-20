@@ -11,7 +11,9 @@
       </div>
     </div>
   <% else %>
-    <h1>Welcome to Time Capsule</h1>
-    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <h1 class="home">Time Capsule</h1>
+    <hr class="small">
+    <h2 class="home">We cherish your past.</h2>
+    <%= link_to "Sign up", new_user_registration_path, id:"signup_btn" %>
   <% end %>
 </div>
