@@ -4,7 +4,13 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "HOME",   root_path, id: "nav_element" %></li>
-        <li><%= link_to "ABOUT",   about_path, id: "nav_element" %></li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to "POST",   root_path, id: "nav_element" %>
+          <% else %>
+            <%= link_to "ABOUT",   about_path, id: "nav_element" %>
+          <% end %>
+        </li>
         <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
