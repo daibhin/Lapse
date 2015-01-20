@@ -17,6 +17,6 @@ class SnippetsController < ApplicationController
   private
 
     def snippet_params
-      params.require(:snippet).permit(:title, :content, :picture)
+      params.require(:snippet).permit(:title, :content, :picture, :delay)
     end
 end

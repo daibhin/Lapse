@@ -3,6 +3,7 @@ class Snippet < ActiveRecord::Base
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
+  validates :delay, presence: true
   validates :content, presence: true, length: { maximum: 5000 }
   validates :title, presence: true, length: { maximum: 50 }
   validate :picture_size

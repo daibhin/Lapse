@@ -8,6 +8,11 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new snippet..." %>
   </div>
+  
+  <div class="field">
+    <%= f.select :delay, [['3 minutes', Time.now + 3.minutes], ['1 week', Time.now + 1.week], ['1 month', Time.now + 1.month], ['1 year', Time.now + 1.year], ['5 years', Time.now + 5.years], ['10 years', Time.now + 10.years]] %>
+  </div>
+  
   <span class="picture">
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>

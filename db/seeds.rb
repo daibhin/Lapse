@@ -6,5 +6,5 @@ User.create!(email: "d.newell1@outlook.com",
 user = User.first
 40.times do
   content = Faker::Lorem.sentence(5)
-  user.snippets.create!(title: "Test", content: content)
+  user.snippets.create!(title: "Test", content: content, delay: 3000)
 end
