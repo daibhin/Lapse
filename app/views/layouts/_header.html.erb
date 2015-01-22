@@ -1,12 +1,25 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Time Capsule", root_path, id: "logo" %>
-    <nav>
+<header>
+  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a><%= link_to "Time Capsule", root_path, id: "logo" %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="container">
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "HOME",   root_path, id: "nav_element" %></li>
         <li>
           <% if user_signed_in? %>
-            <%= link_to "POST",   root_path, id: "nav_element" %>
+            <%= link_to "ADD SNIPPET",   root_path, id: "nav_element" %>
           <% else %>
             <%= link_to "ABOUT",   about_path, id: "nav_element" %>
           <% end %>
@@ -30,6 +43,8 @@
           <li><%= link_to "LOGIN", new_user_session_path, id: "nav_element" %></li>
         <% end %>
       </ul>
-    </nav>
-  </div>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 </header>
