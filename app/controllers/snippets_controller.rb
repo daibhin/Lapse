@@ -5,7 +5,7 @@ class SnippetsController < ApplicationController
     @snippet = current_user.snippets.build(snippet_params)
     if @snippet.save
       flash[:success] = "Snippet added to your time capsule!"
-      redirect_to root_url
+      redirect_to current_user
     else
       render 'static_pages/home'
     end

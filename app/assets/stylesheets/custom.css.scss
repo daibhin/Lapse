@@ -63,12 +63,20 @@ p {
 
 /* header */
 
+.navbar-default .navbar-nav > li > a {
+  	color:#fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  	color:#777;
+}
+
 #logo {
   font-family: Open Sans, sans-serif;
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -160,15 +168,16 @@ input {
   padding: 0;
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid #A3A3A3;
   }
   .user {
     margin-top: 5em;
     padding-top: 0;
+    color: #E3E3E3;
   }
   .content {
     display: block;
-    margin-left: 60px;
+    color: #E3E3E3;
     img {
       display: block;
       padding: 5px 0;
@@ -196,16 +205,25 @@ span.picture {
 }
 
 /* Navbar */
+.navbar-default {
+    border-color: rgba(0,0,0,0);
+}
+
 #nav_element {
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: bold;
   font-size: 12px;
+  color: #3385FF;
+}
+
+.navbar-inner {
+    background: rgba(255,255,255,0.2);
 }
 
 /* Home Page */
 
 .home {
-  color: white;
+  color: #F9F9F9;
 }
 
 .jumbotron {
@@ -220,7 +238,8 @@ span.picture {
   text-decoration: none;
   padding: 10px;
   border-style: solid;
-  border-width: medium;
+  border-width: 2px;
+  margin-bottom: 30px;
 }
 
 #signup_btn:hover {
@@ -235,7 +254,7 @@ margin-right: auto;
 margin-bottom: 15px;
 margin-left: auto;
 border-width: 4px;
-border-color: #fff;
+border-color: white;
 }
 
 /* Contact */
@@ -244,4 +263,62 @@ border-color: #fff;
 	display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+
+
+img.bg {
+			/* Set rules to fill background */
+			min-height: 100%;
+			min-width: 1024px;
+			
+			/* Set up proportionate scaling */
+			width: 100%;
+			height: auto;
+			
+			/* Set up positioning */
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+		
+		@media screen and (max-width: 1024px){
+			img.bg {
+				left: 50%;
+				margin-left: -512px; }
+		}
+		
+#page-wrap {
+  text-align: center;
+  position: relative;
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+	background: white;
+  -moz-box-shadow: 0 0 20px black;
+  -webkit-box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px black;
+}
+
+#page-wrap {
+  padding: 20px;
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+}
+
+#page-wrap h2 { text-align: center; color: #fefefe; font-weight: normal; margin-bottom: 50px; margin-top: 30px }
+		
+p {
+	font: 15px/2 Georgia, Serif;
+	margin: 0 0 30px 0;
+	text-indent: 40px;
+}
+
+.field {
+  color: white;
+  font-family: Open Sans, Arial, sans-serif;
+}
+
+input, textarea, select {
+  color : #737373;
 }

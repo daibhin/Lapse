@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inner">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -15,34 +15,30 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <div class="container">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "HOME",   root_path, id: "nav_element" %></li>
-        <li>
-          <% if user_signed_in? %>
-            <%= link_to "ADD SNIPPET",   root_path, id: "nav_element" %>
+        <ul class="nav navbar-nav navbar-right">
+          
+          <% if !user_signed_in? %>
+            <li><%= link_to "HOME", root_path, id: "nav_element" %></li>
+            <li><%= link_to "ABOUT", about_path, id: "nav_element" %></li>
+            <li><%= link_to "SIGN UP", new_user_registration_path, id: "nav_element" %></li>
+            <li><%= link_to "LOGIN", new_user_session_path, id: "nav_element" %></li>
           <% else %>
-            <%= link_to "ABOUT",   about_path, id: "nav_element" %>
+            <li><%= link_to "NEW SNIPPET", root_path, id: "nav_element" %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle nav_element" data-toggle="dropdown">
+                <%= current_user.email %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Profile', user_path(current_user.id), id: "nav_element" %></li>
+                <li><%= link_to 'Edit profile', edit_user_registration_path, id: "nav_element" %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, id: "nav_element" %>
+                </li>
+              </ul>
+            </li>
           <% end %>
-        </li>
-        <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= current_user.email %> <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Profile', user_path(current_user.id), id: "nav_element" %></li>
-              <li><%= link_to 'Edit profile', edit_user_registration_path, id: "nav_element" %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, id: "nav_element" %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "SIGN UP", new_user_registration_path, id: "nav_element" %></li>
-          <li><%= link_to "LOGIN", new_user_session_path, id: "nav_element" %></li>
-        <% end %>
-      </ul>
+        </ul>
       </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

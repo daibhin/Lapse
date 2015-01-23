@@ -1,5 +1,5 @@
 <li id="snippet-<%= snippet.id %>">
-  <span class="user"><%= snippet.title %></span>
+  <span class="user" style="font-size:20px;"><%= snippet.title %></span>
   <% if !((snippet.delay) > Time.now) %>
     <span class="content"><%= snippet.content %></span>
     <%= image_tag snippet.picture.url if snippet.picture? %>

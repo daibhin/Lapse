@@ -7,6 +7,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -16,19 +17,11 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <% if !current_page?(root_url) %>
-      <div class="container">
-    <% end %>
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
+    <%= image_tag "bg#{rand(1..4)}.jpg", class: 'bg' %>
+	
+	  <div id="page-wrap">
       <%= yield %>
-      <%= render 'layouts/footer' %>
-    <% if !current_page?('/') %>
-      </div>
-    <% end %>
+    </div>
+    
   </body>
 </html>
